@@ -1,0 +1,24 @@
+{
+  "name": "create-new-server",
+  "version": "1.0.0",
+  "description": "learning Node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohmyyy/create-new-server.git"
+  },
+  "author": "Mohmy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohmyyy/create-new-server/issues"
+  },
+  "homepage": "https://github.com/mohmyyy/create-new-server#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
