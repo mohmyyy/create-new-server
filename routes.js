@@ -79,10 +79,10 @@ const requestHandler = (req, res) => {
 //   text: "This is Funny and i am Text",
 // };
 
-exports = {
-  handler: requestHandler,
-  text: "This is Funny and i am Text",
-};
+// exports = {
+//   handler: requestHandler,
+//   text: "This is Funny and i am Text",
+// };
 
-exports.handler = requestHandler;
-exports.text = "undefined";
+// exports.handler = requestHandler;
+// exports.text = "undefined";
