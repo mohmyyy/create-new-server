@@ -2,30 +2,20 @@ const express = require("express");
 
 const app = express();
 
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
 // app.use(express.json());
 app.use(express.urlencoded());
 
-app.use("/add-product", (req, res, next) => {
-  res.send(
-    '<form action="/product" method="POST"><input type="text" name="title" placeholder="product Title"><input type="text" name="size" placeholder="product size"><button tpe="submit">Add Product</button></form>'
-  );
-});
+app.use("/admin", adminRoutes);
 
-app.post("/product", (req, res, next) => {
-  console.log(req.body);
-  res.redirect("/");
-});
-
-app.use("/", (req, res, next) => {
-  res.send("<h3>i am on root page</h3>");
-  // next();
-});
+app.use("/shop", shopRoutes);
 
 app.use((req, res, next) => {
-  // res.send("<h3>Hello</h3>");
+  res
+    .status(404)
+    .send('<h1>Page Not Fount</h1> <a href="/"> Go to home page <a>');
 });
-
-// const server = h ttp.createServer(app);
 
 app.listen(3000);
 
