@@ -1,20 +1,25 @@
 const express = require("express");
+const path = require("path");
 
 const app = express();
 
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
+const contactusRoutes = require("./routes/contactus");
 // app.use(express.json());
 app.use(express.urlencoded());
-
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/admin", adminRoutes);
+app.use(contactusRoutes);
+app.use(shopRoutes);
+// app.use("/success", successRoutes);
 
-app.use("/shop", shopRoutes);
+app.use("/success", (req, res, next) => {
+  res.send("<h1>Successfull Contacted </h1>");
+});
 
 app.use((req, res, next) => {
-  res
-    .status(404)
-    .send('<h1>Page Not Fount</h1> <a href="/"> Go to home page <a>');
+  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
 
 app.listen(3000);
