@@ -13,10 +13,9 @@ app.use("/admin", adminRoutes);
 app.use(contactusRoutes);
 app.use(shopRoutes);
 // app.use("/success", successRoutes);
+const sucessController = require("./controllers/sucess");
 
-app.use("/success", (req, res, next) => {
-  res.send("<h1>Successfull Contacted </h1>");
-});
+app.use("/success", sucessController.getSuccess);
 
 app.use((req, res, next) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
